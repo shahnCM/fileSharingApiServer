@@ -38,6 +38,8 @@ Feature Summary
     a. POST files/
     
     This endpoint is used to upload new files. It should accept “multipart/form-data” requests and return a response in JSON format with the following attributes: “publicKey”, “privateKey”.
+
+    ___The input field is named as `file`___
    
    b. GET files/:publicKey
 	
