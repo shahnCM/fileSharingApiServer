@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { successResponse } = require('../utils/commonUtils')
 const { generateKeyPair } = require('../services/keyService')
 const { storageServiceFactory } = require('../factories/storageFactories')
@@ -33,7 +34,20 @@ exports.show = async (req, res) => {
     const storageService = storageServiceFactory(fileInfo.storage)
     const filePath = await storageService.getFile(fileInfo)
 
-    return res.status(200).download(filePath, fileInfo.name)
+    // Create a readable stream
+    const fileStream = fs.createReadStream(filePath)
+
+    // Set appropriate headers
+    res.setHeader('Content-Disposition', `attachment; filename="${fileInfo.name}"`)
+    res.type(fileInfo.mimetype)
+
+    // Pipe the file stream to the response stream
+    fileStream.pipe(res)
+
+    fileStream.on('error', (err) => {
+        console.log('Error streaming / downloading file:', err)
+        throw new Error('Error streaming / downloading file')
+    });
 }
 
 exports.destroy = async (req, res) => {
