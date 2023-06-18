@@ -60,7 +60,7 @@ describe('API endpoints from src/routes/files.js', function () {
             request(app)
                 .get('/files/' + publicKey)
                 .expect(200)
-                .expect('Content-Type', 'text/plain; charset=UTF-8')
+                .expect('Content-Type', 'text/plain; charset=utf-8')
                 .end(done)
         })
 

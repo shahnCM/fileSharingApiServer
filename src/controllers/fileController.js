@@ -47,7 +47,7 @@ exports.show = async (req, res) => {
     fileStream.on('error', (err) => {
         console.log('Error streaming / downloading file:', err)
         throw new Error('Error streaming / downloading file')
-    });
+    })
 }
 
 exports.destroy = async (req, res) => {
