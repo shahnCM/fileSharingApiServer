@@ -2,12 +2,14 @@ const { Model } = require('objection');
 const { localeTime } = require('../utils/commonUtils');
 
 class User extends Model {
-    static get tableName() {
-        return 'users';
-    }
+    static tableName = 'users';
+    static idColumn = 'id';
 
-    static get idColumn() {
-        return 'id';
+    static get Roles() {
+        return {
+            USER: 'user',
+            ADMIN: 'admin',
+        };
     }
 
     $beforeInsert() {
@@ -20,4 +22,4 @@ class User extends Model {
     }
 }
 
-module.exports = User;
+exports.User = User;
