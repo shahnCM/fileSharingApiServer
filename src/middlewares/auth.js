@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const {jwt_secret} = require('../../config/serverConfig');
 const { AuthenticationError } = require('../errors/AuthenticationError');
-const { User } = require('../database/objection/models/User');
+const User = require('../database/objection/models/User');
 
 const auth = async (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -25,6 +25,7 @@ const auth = async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, jwt_secret);
+        console.log(User);
         const user = await User.query().findById(decoded.id);
 
         if (!user) {
@@ -35,8 +36,9 @@ const auth = async (req, res, next) => {
         next();
 
     } catch (err) {
+        console.log(err)
         // res.status(401).json({ error: 'Invalid token' });
-        return next(new AuthenticationError('Invalid token'));
+        return next(new AuthenticationError(err));
     }
 };
 

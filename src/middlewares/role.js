@@ -1,6 +1,6 @@
 // middlewares/roleMiddleware.js
 const { AuthorizationError } = require('../errors/AuthorizationError');
-const { User } = require('../database/objection/models/User');
+const User  = require('../database/objection/models/User');
 
 const role = (requiredRole) => {
     return (req, res, next) => {
