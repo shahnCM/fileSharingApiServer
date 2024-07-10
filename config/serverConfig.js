@@ -10,5 +10,6 @@ module.exports = {
     rate_limit_window_in_minute: process.env.RATE_LIMIT_WINDOW_IN_MINUTE,
     rate_limit_allowed_requests: process.env.RATE_LIMIT_ALLOWED_REQUESTS,
     file_max_inactive_time: process.env.FILE_MAX_INACTIVE_TIME,
-    jwt_secret: process.env.JWT_SECRET
+    jwt_secret: process.env.JWT_SECRET,
+    jwt_expires_in: process.env.JWT_EXPIRES_IN
 };

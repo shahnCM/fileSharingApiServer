@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {jwt_secret} = require('../config/server_config');
+const {jwt_secret} = require('../../config/serverConfig');
 const { AuthenticationError } = require('../errors/AuthenticationError');
 const { User } = require('../database/objection/models/User');
 

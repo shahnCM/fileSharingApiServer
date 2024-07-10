@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { NotFoundError } = require('../errors/NotFoundError');
-const config = require('../config/server_config');
+const config = require('../../config/serverConfig');
 
 const registerUser = async (username, password) => {
     const hashedPassword = await bcrypt.hash(password, 8);
@@ -27,7 +27,7 @@ const loginUser = async (username, password) => {
             throw new NotFoundError('Invalid credentials');
         }
 
-        const token = jwt.sign({ id: user.id, role: user.role }, config.jwt_secret, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id, role: user.role }, config.jwt_secret, { expiresIn: config.jwt_expires_in });
         return { token };
     } catch (error) {
         throw new Error(error.message);
