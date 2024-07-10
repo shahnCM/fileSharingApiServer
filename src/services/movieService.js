@@ -1,4 +1,4 @@
-const Movie = require('../models/Movie');
+const Movie = require('../database/objection/models/Movie');
 const { NotFoundError } = require('../errors/NotFoundError');
 
 const getAllMovies = async () => {

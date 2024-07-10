@@ -27,6 +27,7 @@ exports.getFavorites = async (req, res) => {
 };
 
 exports.unmarkFavorite = async (req, res) => {
+    const app = 'abc'
     const { movie_id } = req.body;
     const user_id = req.user.id;
 

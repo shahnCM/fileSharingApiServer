@@ -1,4 +1,4 @@
-const Favorite = require('../models/Favorite');
+const Favorite = require('../database/objection/models/Favorite');
 const { NotFoundError } = require('../errors/NotFoundError');
 
 const markFavorite = async (user_id, movie_id) => {

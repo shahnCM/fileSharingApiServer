@@ -1,7 +1,6 @@
 // middlewares/roleMiddleware.js
-const { User } = require('../models/userModel');
-const { UnauthorizedError } = require('../errors/UnauthorizedError');
 const { AuthorizationError } = require('../errors/AuthorizationError');
+const { User } = require('../database/objection/models/User');
 
 const role = (requiredRole) => {
     return (req, res, next) => {
@@ -15,4 +14,4 @@ const role = (requiredRole) => {
     };
 };
 
-module.exports = roleMiddleware;
+module.exports = role;

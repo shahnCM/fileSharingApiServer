@@ -1,4 +1,4 @@
-const Comment = require('../models/Comment');
+const Comment = require('../database/objection/models/Comment');
 const { NotFoundError } = require('../errors/NotFoundError');
 
 const addComment = async (user_id, movie_id, comment) => {

@@ -1,5 +1,5 @@
 const { Model } = require('objection');
-const { localeTime } = require('../utils/commonUtils');
+const { localeTime } = require('../../../utils/commonUtils');
 
 class Favorite extends Model {
     static get tableName() {

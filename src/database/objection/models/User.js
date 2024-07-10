@@ -1,5 +1,5 @@
 const { Model } = require('objection');
-const { localeTime } = require('../utils/commonUtils');
+const { localeTime } = require('../../../utils/commonUtils');
 
 class User extends Model {
     static tableName = 'users';
@@ -22,4 +22,4 @@ class User extends Model {
     }
 }
 
-exports.User = User;
+module.exports = User;
